@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response; 
 use App\Models\User;
-use Illuminate\Http\Response; // Add this line
 
 class UserController extends Controller
 {
@@ -15,12 +15,6 @@ class UserController extends Controller
         $this->request = $request;
     }
 
-    public function getUsers()
-    {
-        $users = User::all();
-        return response()->json($users, 200);
-    }
-
     /**
      * Return the list of users
      * @return Illuminate\Http\Response
@@ -29,6 +23,12 @@ class UserController extends Controller
     {
         $users = User::all();
         return response()->json($users, 200); // Assuming successResponse and errorResponse are replaced with Laravel's response methods
+    }
+
+    public function getUsers()
+    {
+        $users = User::all();
+        return response()->json($users, 200);
     }
 
     public function add(Request $request)
