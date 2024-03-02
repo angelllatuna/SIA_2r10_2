@@ -17,11 +17,11 @@ $router->get('/', function () use ($router) {
 });
 
 // Define API routes
-    $router->get('/users',['users' => 'UserController@getUsers']);
-    $router->get('/users', 'UserController@getUsers'); // Get all users
-    $router->post('/users', 'UserController@add'); // Create new user
-    $router->get('/users/{id}', 'UserController@show'); // Get user by id
-    $router->put('/users/{id}', 'UserController@update'); // Update user record
-    $router->patch('/users/{id}', 'UserController@update'); // Update user record
-    $router->delete('/users/{id}', 'UserController@delete'); // Delete record
+    $router->get('/users',['uses' => 'UserController@getUsers']);
+    $router->post('/users',['uses' => 'UserController@add']); // Create new user
+
+   // $router->get('/users/{id}', 'UserController@show'); // Get user by id
+   // $router->put('/users/{id}', 'UserController@update'); // Update user record
+    //$router->patch('/users/{id}', 'UserController@update'); // Update user record
+    //$router->delete('/users/{id}', 'UserController@delete'); // Delete record
 
