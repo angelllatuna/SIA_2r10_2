@@ -16,12 +16,14 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-// Define API routes
+
     $router->get('/users',['uses' => 'UserController@getUsers']);
     $router->post('/users',['uses' => 'UserController@add']); // Create new user
 
-   // $router->get('/users/{id}', 'UserController@show'); // Get user by id
-   // $router->put('/users/{id}', 'UserController@update'); // Update user record
-    //$router->patch('/users/{id}', 'UserController@update'); // Update user record
-    //$router->delete('/users/{id}', 'UserController@delete'); // Delete record
+  
 
+ 
+   // $router->get('/users/{id}', 'UserController@show'); 
+    $router->put('/users/{id}', 'UserController@update');
+    $router->patch('/users/{id}', 'UserController@update'); 
+    $router->delete('/users/{id}', 'UserController@delete'); 

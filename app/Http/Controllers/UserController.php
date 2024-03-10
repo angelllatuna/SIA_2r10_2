@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Traits\Responser;
+use DB;
 
 Class UserController extends Controller {
+
+    use ApiResponser;
     private $request;
     
     public function __construct(Request $request)
