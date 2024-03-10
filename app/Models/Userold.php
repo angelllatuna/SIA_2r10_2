@@ -22,9 +22,7 @@ class Userold extends Model implements AuthenticatableContract, AuthorizableCont
         'name', 'email',
     ];
 
-    /**
-     * The attributes excluded from the model's JSON form.
-     *
+    /** 
      * @var string[]
      */
     protected $hidden = [
