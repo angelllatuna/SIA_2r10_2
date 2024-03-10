@@ -24,5 +24,5 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->post('/users',['uses' => 'UserController@add']); 
     $router->get('/users/{id}', 'UserController@show'); 
     $router->put('/users/{id}', 'UserController@update');
-    $router->patch('/users/{id}', 'UserController@update'); 
+    //$router->patch('/users/{id}', 'UserController@update'); 
     $router->delete('/users/{id}', 'UserController@delete'); 

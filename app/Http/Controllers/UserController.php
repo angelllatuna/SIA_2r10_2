@@ -1,53 +1,51 @@
 <?php
+
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Response;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Models\User;
-use App\Traits\Responser;
-use DB;
+use App\Traits\ApiResponser; // Import the ApiResponser trait
 
-Class UserController extends Controller {
+class UserController extends Controller
+{
+    use ApiResponser; // Use the ApiResponser trait
 
-    use ApiResponser;
     private $request;
-    
+
     public function __construct(Request $request)
     {
         $this->request = $request;
     }
 
-    public function getUsers(){
-      $users = User::all();
-     // return $this->response($users, 200);
-     return response()->json($users, 200);
-  }
-
-      /**
-     * Return the list of users
+    /**
+     * Return the list of users.
+     *
      * @return Illuminate\Http\Response
      */
     public function index()
     {
-    $users = User::all();
-      return $this->successResponse($users);
-      //return response()->json($users, 200); 
+        $users = User::all();
+        return $this->successResponse($users);
     }
 
-    public function addUser(Request $request )
+    /**
+     * Add a new user.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return Illuminate\Http\Response
+     */
+    public function addUser(Request $request)
     {
-      $rules = [
-      'username' => 'required|max:20',
-      'password' => 'required|max:20',
-      'gender' => 'required|in:Male,Female'
-      ];
-      
-      $this->validate($request,$rules);
-      
-      $user = User::create($request->all());
-      return $this->successResponse($user, Response::HTTP_CREATED);
-      //return $this->successResponse($user,200);
-      }
+        $rules = [
+            'username' => 'required|max:20',
+            'password' => 'required|max:20',
+            'gender' => 'required|in:Male,Female'
+        ];
 
-    
+        $this->validate($request, $rules);
+
+        $user = User::create($request->all());
+        return $this->successResponse($user, Response::HTTP_CREATED);
+    }
 }
