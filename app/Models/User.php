@@ -15,4 +15,8 @@ class User extends Model
 
     // Disable timestamps
     public $timestamps = false;
+
+    protected $hidden = [
+        'password',
+    ];
 }

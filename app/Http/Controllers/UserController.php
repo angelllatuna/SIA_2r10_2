@@ -38,7 +38,7 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'username' => 'required|max:20',
             'password' => 'required|max:20',
-            'gender' => 'required|in:Male,Female',
+            'gender' => 'required|in:male,female',
         ]);
 
         if ($validator->fails()) {
@@ -79,7 +79,7 @@ class UserController extends Controller
         $validator = Validator::make($request->all(), [
             'username' => 'max:20',
             'password' => 'max:20',
-            'gender' => 'in:Male,Female',
+            'gender' => 'in:male,female',
         ]);
 
         if ($validator->fails()) {
